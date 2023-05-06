@@ -1,0 +1,9 @@
+<h1>Tes Kualifikasi Atlet</h1>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {% for question in questions %}
+    <h2>{{ question.question }}</h2>
+    <ul>
+      <li><input type="radio" name="{{ question.pk }}" value="{{ question.choice1 }}"> {{ question.choice1 }}</li>
+      <li><input type="radio" name="{{ question.pk }}" value="{{ question.choice2 }}"> {{ question.choice2 }}</li>

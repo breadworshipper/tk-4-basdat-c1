@@ -1,0 +1,41 @@
+<h1>Enrolled Events</h1>
+
+{% if enrolled_events %}
+<table>
+  <thead>
+    <tr>
+      <th>Nama Event</th>
+      <th>Stadium</th>
+      <th>Hadiah</th>
+      <th>Kategori Superseries</th>
+      <th>Tanggal Mulai</th>
+      <th>Tanggal Selesai</th>
+      <th>Kapasitas</th>
+      <th>Mulai</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for event in enrolled_events %}
+    <tr>
+      <td>{{ event.nama_event }}</td>
+      <td>{{ event.stadium }}</td>
+      <td>{{ event.hadiah }}</td>
+      <td>{{ event.kategori_superseries }}</td>
+      <td>{{ event.tanggal_mulai }}</td>
+      <td>{{ event.tanggal_selesai }}</td>
+      <td>{{ event.kapasitas }}</td>
+      <td>
+        {% if event.kapasitas == event.kapasitas_terisi %}
+        <form method="POST" action="{% url 'start_match' event.id %}">
+          {% csrf_token %}
+          <button type="submit">Mulai</button>
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Tidak ada event yang di-enroll.</p>
+{% endif %}

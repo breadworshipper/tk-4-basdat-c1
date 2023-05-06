@@ -1,0 +1,14 @@
+{% for event in finished_events %}
+<tr>
+  <td>{{ event.nama_event }}</td>
+  <td>{{ event.stadium }}</td>
+  <td>{{ event.hadiah }}</td>
+  <td>{{ event.kategori_superseries }}</td>
+  <td>{{ event.tanggal_mulai }}</td>
+  <td>{{ event.tanggal_selesai }}</td>
+  <td>{{ event.kapasitas }}</td>
+  <td>
+    <a href="{% url 'show_results' event.id %}">Lihat Hasil</a>
+  </td>
+</tr>
+{% endfor %}

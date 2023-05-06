@@ -1,0 +1,28 @@
+<h1>Pertandingan</h1>
+
+<h2>Babak Perempat Final</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tim 1</th>
+      <th>Tim 2</th>
+      <th>Skor Tim 1</th>
+      <th>Skor Tim 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for match in matches %}
+    <tr>
+      <td>{{ match.tim1 }}</td>
+      <td>{{ match.tim2 }}</td>
+      <td>{{ match.skor_tim1 }}</td>
+      <td>{{ match.skor_tim2 }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<form method="POST" action="{% url 'match_done' %}">
+  {% csrf_token %}
+  <button type="submit">Done</button>
+</form>

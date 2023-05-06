@@ -1,0 +1,4 @@
+<form method="POST" action="{% url 'match_done' %}">
+  {% csrf_token %}
+  <button type="submit">Done</button>
+</form>

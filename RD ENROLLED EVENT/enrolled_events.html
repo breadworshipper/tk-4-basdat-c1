@@ -1,0 +1,24 @@
+<h1>Enrolled Events</h1>
+
+{% for enrollment in enrollments %}
+  <div class="card">
+    <div class="card-header">
+      <h3>{{ enrollment.event.nama }}</h3>
+    </div>
+    <div class="card-body">
+      <p>Stadium: {{ enrollment.event.stadium }}</p>
+      <p>Hadiah: {{ enrollment.event.hadiah }}</p>
+      <p>Kategori Superseries: {{ enrollment.event.kategori_superseries }}</p>
+      <p>Kategori Spesialisasi: {{ enrollment.event.kategori_spesialisasi }}</p>
+      <p>Tanggal Mulai: {{ enrollment.event.tanggal_mulai }}</p>
+      <p>Tanggal Selesai: {{ enrollment.event.tanggal_selesai }}</p>
+      <p>Kapasitas: {{ enrollment.event.kapasitas }}</p>
+    </div>
+    <div class="card-footer">
+      <form method="POST" action="{% url 'unenroll_event' enrollment_id=enrollment.pk %}">
+        {% csrf_token %}
+        <button type="submit">Unenroll</button>
+      </form>
+    </div>
+  </div>
+{% endfor %}
