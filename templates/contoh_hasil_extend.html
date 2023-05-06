@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'atlet_navbar.html' %}
 <head>
+  {% block meta %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
   <title>Input Data Form</title>
+  {% endblock meta %}
 </head>
-<body>
+{% block content %}
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -73,4 +74,4 @@
         </div>
       </div>
     </div
-
+{% endblock content %}
