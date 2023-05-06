@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <title>Input Data Form</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            Input Data Atlet
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda">
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda">
+              </div>
+              <div class="form-group">
+                <label for="negara">Negara:</label>
+                <input type="text" class="form-control" id="negara" placeholder="Masukkan negara Anda">
+              </div>
+              <div class="form-group">
+                <label for="tgl_lahir">Tanggal Lahir:</label>
+                <input type="date" class="form-control" id="tgl_lahir">
+              </div>
+              <div class="form-group">
+                <label for="play">Play:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="play" id="play_left" value="left">
+                  <label class="form-check-label" for="play_left">
+                    Left
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="play" id="play_right" value="right">
+                  <label class="form-check-label" for="play_right">
+                    Right
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="tinggi_badan">Tinggi Badan:</label>
+                <input type="number" class="form-control" id="tinggi_badan" placeholder="Masukkan tinggi badan Anda (cm)">
+              </div>
+              <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-laki">
+                  <label class="form-check-label" for="laki_laki">
+                    Laki-laki
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                  <label class="form-check-label" for="perempuan">
+                    Perempuan
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div
