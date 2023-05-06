@@ -1,29 +1,19 @@
 .card {
-    border-radius: 0;
     border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
-    border-radius: 0;
+.form-floating label {
+    color: #5f6368;
 }
 
-.form-control:focus {
-    border-color: #007bff;
-    box-shadow: none;
-}
-
-.btn-primary {
-    border-radius: 0;
-    width: 100%;
-}
-
-.btn-primary:hover {
-    background-color: #007bff;
+.form-floating input:focus {
     border-color: #007bff;
 }
 
-.btn-primary:focus {
-    background-color: #007bff;
-    border-color: #007bff;
+.form-check label {
+    color: #5f6368;
+}
+
+.text-secondary {
+    font-size: 1.2rem;
 }
