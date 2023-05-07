@@ -7,11 +7,12 @@ from reg_log.views import register_coach
 from reg_log.views import register_umpire
 app_name = 'reg_log'
 urlpatterns = [
-    path('portal/', portal, name = 'portal'),
-    path('portal/login/', login, name='login'),
-    path('portal/register/', register, name='register'),
-    path('portal/register/atlet', register_athlete, name='register'),
-    path('portal/register/pelatih', register_coach, name='register'),
-    path('portal/register/umpire', register_umpire, name='register'),
+    path('register/umpire', register_umpire, name='register-umpire'),
+    path('', portal, name = 'portal'),
+    path('login/', login, name='login'),
+    path('register/', register, name='register'),
+    path('register/atlet', register_athlete, name='register-atlet'),
+    path('register/pelatih', register_coach, name='register-coach'),
+    
 
 ]
