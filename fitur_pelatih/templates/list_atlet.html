@@ -1,0 +1,39 @@
+{% extends 'pelatih_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block meta %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Atlet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  {% endblock meta %}
+
+</head>
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4">List Atlet</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nama Atlet</th>
+          <th>Email</th>
+          <th>World rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sukiman1</td>
+          <td>Sukiman1@gmail.com</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Sukiman2</td>
+          <td>Sukiman2@gmail.com</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
+  </html>

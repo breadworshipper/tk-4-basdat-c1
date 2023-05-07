@@ -1,0 +1,33 @@
+{% extends 'pelatih_navbar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta %}
+	<title>Daftar Atlet</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% endblock meta %}
+</head>
+{% block content %}
+	<div class="container mt-5">
+		<h3>Daftar Atlet</h3>
+		<form action="http://localhost:8000/fitur-pelatih/list-atlet/">
+			<div class="form-group">
+				<label for="athlete-dropdown">Atlet yang mau didaftarkan:</label>
+				<select class="form-control" id="athlete-dropdown">
+					<option>-- Pilih Atlet --</option>
+					<option>Atlet 1</option>
+					<option>Atlet 2</option>
+					<option>Atlet 3</option>
+					<option>Atlet 4</option>
+				</select>
+			</div>
+			<button href="http://localhost:8000/fitur-pelatih/list-atlet/" style="margin-top: 10px;" type="submit" class="btn btn-primary">SUBMIT</button>
+		</form>
+	</div>
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/Sc" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock content %}
+</html>
