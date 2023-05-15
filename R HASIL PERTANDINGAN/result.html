@@ -1,0 +1,26 @@
+<h1>HASIL PERTANDINGAN {{ event.nama_event }}</h1>
+
+<p>Nama Event: {{ event.nama_event }}</p>
+<p>Stadium: {{ event.stadium }}</p>
+<p>Hadiah: {{ event.hadiah }}</p>
+<p>Kategori Superseries: {{ event.kategori_superseries }}</p>
+<p>Tanggal Mulai: {{ event.tanggal_mulai }}</p>
+<p>Tanggal Selesai: {{ event.tanggal_selesai }}</p>
+<p>Kapasitas: {{ event.kapasitas }}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tahap</th>
+      <th>Nama Tim</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for match in matches %}
+    <tr>
+      <td>{{ match.tahap }}</td>
+      <td>{{ match.tim }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
