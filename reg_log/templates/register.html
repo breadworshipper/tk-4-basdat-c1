@@ -57,13 +57,13 @@
 	<p>Please select the type of registration you would like to complete:</p>
 	<ul>
 		<li>
-			<a href="atlet">Athlete</a>
+			<a href="{% url 'reg_log:register-atlet' %}">Athlete</a>
 		</li>
 		<li>
-			<a href="pelatih">Coach</a>
+			<a href="{% url 'reg_log:register-coach' %}">Coach</a>
 		</li>
 		<li>
-			<a href="umpire">Umpire</a>
+			<a href="{% url 'reg_log:register-umpire' %}">Umpire</a>
 		</li>
 	</ul>
 

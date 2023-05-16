@@ -13,6 +13,4 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('register/atlet', register_athlete, name='register-atlet'),
     path('register/pelatih', register_coach, name='register-coach'),
-    
-
 ]
