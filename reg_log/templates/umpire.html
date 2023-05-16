@@ -6,30 +6,44 @@
   <title>Input Data Form</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header bg-primary text-white">
-            Input Data
+          <div class="card-header">
+            <h3>Input Data</h3>
           </div>
           <div class="card-body">
-            <form>
+            <form method="post" action="{% url 'reg_log:register-umpire' %}">
+              {% csrf_token %}
               <div class="form-group">
                 <label for="nama">Nama:</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
               </div>
               <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email">
               </div>
               <div class="form-group">
                 <label for="negara">Negara:</label>
-                <input type="text" class="form-control" id="negara" placeholder="Masukkan negara">
+                <input type="text" class="form-control" id="negara" name="negara" placeholder="Masukkan negara">
               </div>
-              <button type="submit" class="btn btn-primary">Daftar</button>
+              {% if messages %}
+              <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                <div class="alert-message">
+                  {{ message }}
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Daftar</button>
+              </div>
             </form>
           </div>
         </div>
