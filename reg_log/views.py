@@ -33,9 +33,7 @@ def register_athlete(request):
         jenis_kelamin = parse_play_type(request.POST.get('jenis_kelamin'))
         
         try:
-            query_insert_member = """insert into member (id, name, email) 
-            VALUES (%s, %s, %s)"""
-            cursor.execute(query_insert_member, (id_user, nama, email))
+            create_member(cursor, id_user, nama, email)
             query_insert_atlet = """INSERT INTO atlet (id, tgl_lahir, negara_asal, play_right, height, world_rank, jenis_kelamin) 
             VALUES (%s, %s, %s, %s, %s, NULL, %s)"""
             cursor.execute(query_insert_atlet, (id_user, tanggal_lahir, negara, play_type, tinggi_badan , jenis_kelamin))
@@ -49,6 +47,42 @@ def register_athlete(request):
     return render(request, 'athlete.html')
 
 def register_coach(request):
+    if (request.method == 'POST'):
+        db_connection = psycopg2.connect(
+            host="localhost",
+            database="postgres",
+            user="postgres",
+            password="Inipasswordsaya12."
+        )
+        try:
+            cursor = db_connection.cursor()
+            cursor.execute("set search_path to babadu")
+            id_user = str(uuid.uuid4())
+            nama = request.POST.get('nama')
+            email = request.POST.get('email')
+            negara = request.POST.get('negara')
+            kategori = request.POST.getlist('kategori')
+            tanggal_mulai = request.POST.get('tanggal-mulai')
+            
+            print(tanggal_mulai)
+            
+            create_member(cursor, id_user, nama, email)
+            query_insert_pelatih = """INSERT INTO pelatih (id, tanggal_mulai)
+            VALUES (%s, %s)"""
+            cursor.execute(query_insert_pelatih, (id_user, tanggal_mulai))
+            
+            spesialisasi_map = get_spesialisasi(cursor)
+            query_inserti_pelatih_spesialisasi = """INSERT INTO pelatih_spesialisasi (id_pelatih, id_spesialisasi)
+            VALUES (%s, %s)"""
+            pelatih_spesialisasi_values = [(id_user, spesialisasi_map[kategori]) for kategori in kategori]
+            cursor.executemany(query_inserti_pelatih_spesialisasi, pelatih_spesialisasi_values)
+            
+            db_connection.commit()
+            db_connection.close()
+        except Exception as e:
+            db_connection.rollback()
+            messages.error(request, e)
+            redirect('reg_log:register-coach')
     return render(request, 'coach.html')
 
 def portal(request):
@@ -59,3 +93,15 @@ def parse_play_type(play_type: str) -> bool:
 
 def parse_kelamin(kelamin: str) -> bool:
     return kelamin == 'Laki-laki'
+
+def create_member(cursor, id_user: str, nama: str, email: str) -> None:
+    query_insert_member = """insert into member (id, name, email) 
+            VALUES (%s, %s, %s)"""
+    cursor.execute(query_insert_member, (id_user, nama, email))
+
+def get_spesialisasi(cursor) -> dict[str:str]:
+    query_get_spesialisasi = """select * from spesialisasi"""
+    cursor.execute(query_get_spesialisasi)
+    result = cursor.fetchall()
+    result = {nama:id for id, nama in result}
+    return result
