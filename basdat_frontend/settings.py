@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "fitur_pelatih",
     "dashboard",
     "reg_log",
+    "atlet",
 ]
 
 MIDDLEWARE = [
