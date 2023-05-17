@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Input Data Form</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        FORM PEMILIHAN PARTAI KOMPETISI
+                    </div>
+                    <div class="card-body">
+                        <div class="border-bottom m-3 border-5 border-dark">
+                            <h5 class="card-title mx">Event: EventA</h5>
+                            <p class="card-text">Hadiah: Rp 5.000.000</p>
+                            <p class="card-text">Tanggal Mulai: 12-06-2023</p>
+                            <p class="card-text">Tanggal Selesai: 15-06-2023</p>
+                            <p class="card-text">Kategori: S200</p>
+                            <p class="card-text">Kapasitas: 8 orang atau pasangan / partai [diambil dari kapasitas
+                                stadion]</p>
+                            <p class="card-text">Stadium: GBK</p>
+                            <p class="card-text mb-2">Negara: Indonesia</p>
+                        </div>
+                        {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for message in messages %}
+                            <div class="alert-message">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

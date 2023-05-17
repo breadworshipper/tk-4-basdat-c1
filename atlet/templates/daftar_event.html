@@ -12,20 +12,22 @@
         <table class="table table-bordered align-middle">
           <thead class="table-primary">
             <tr>
-              <th scope="col" class="text-center font-weight-bolder">Nama Stadium</th>
-              <th scope="col" class="text-center font-weight-bolder">Negara</th>
-              <th scope="col" class="text-center font-weight-bolder">Kapasitas</th>
+              <th scope="col" class="text-center font-weight-bolder">Nama Event</th>
+              <th scope="col" class="text-center font-weight-bolder">Total Hadiah</th>
+              <th scope="col" class="text-center font-weight-bolder">Tanggal Mulai</th>
+              <th scope="col" class="text-center font-weight-bolder">Kategori</th>
               <th scope="col" class="text-center font-weight-bolder">Action</th>
             </tr>
           </thead>
           <tbody>
-            {% for data_stadium in stadium %}
+            {% for data_event in daftar_event %}
             <tr>
-                <td>{{data_stadium.0}}</td>
-                <td>{{data_stadium.3}}</td>
-                <td>{{data_stadium.2}}</td>
+                <td>{{data_event.0}}</td>
+                <td>{{data_event.1}}</td>
+                <td>{{data_event.2}}</td>
+                <td>{{data_event.3}}</td>
                 <td class="text-center">
-                    <a class="btn btn-outline-primary" href="{% url 'atlet:daftar_event' nama_stadium=data_stadium.0 %}">Pilih</a>
+                    <a class="btn btn-outline-primary" href="#">Pilih</a>
                 </td>
             </tr>
             {% endfor %}
