@@ -1,0 +1,19 @@
+.card {
+    border: none;
+}
+
+.form-floating label {
+    color: #5f6368;
+}
+
+.form-floating input:focus {
+    border-color: #007bff;
+}
+
+.form-check label {
+    color: #5f6368;
+}
+
+.text-secondary {
+    font-size: 1.2rem;
+}

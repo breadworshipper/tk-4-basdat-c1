@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Input Form</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -16,47 +20,56 @@
                         Input Data Coach
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form method="post" action="{% url 'reg_log:register-coach' %}">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <label for="nama">Nama:</label>
-                                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan nama" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Masukkan email" required>
                             </div>
                             <div class="form-group">
                                 <label for="negara">Negara:</label>
-                                <input type="text" class="form-control" id="negara" placeholder="Masukkan negara">
+                                <input type="text" class="form-control" id="negara" name="negara"
+                                    placeholder="Masukkan negara">
                             </div>
                             <div class="form-group">
                                 <label for="kategori">Kategori:</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Tunggal Putra" id="tunggal-putra">
+                                    <input class="form-check-input" name="kategori" type="checkbox"
+                                        value="Tunggal Putra" id="tunggal-putra">
                                     <label class="form-check-label" for="tunggal-putra">
                                         Tunggal Putra
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Tunggal Putri" id="tunggal-putri">
+                                    <input class="form-check-input" name="kategori" type="checkbox"
+                                        value="Tunggal Putri" id="tunggal-putri">
                                     <label class="form-check-label" for="tunggal-putri">
                                         Tunggal Putri
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Ganda Putra" id="ganda-putra">
+                                    <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putra"
+                                        id="ganda-putra">
                                     <label class="form-check-label" for="ganda-putra">
                                         Ganda Putra
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Ganda Putri" id="ganda-putri">
+                                    <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putri"
+                                        id="ganda-putri">
                                     <label class="form-check-label" for="ganda-putri">
                                         Ganda Putri
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Ganda Campuran" id="ganda-campuran">
+                                    <input class="form-check-input" name="kategori" type="checkbox"
+                                        value="Ganda Campuran" id="ganda-campuran">
                                     <label class="form-check-label" for="ganda-campuran">
                                         Ganda Campuran
                                     </label>
@@ -64,10 +77,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="tanggal-mulai">Tanggal Mulai:</label>
-                                <input type="date" class="form-control" id="tanggal-mulai">
+                                <input type="date" class="form-control" name="tanggal-mulai" id="tanggal-mulai"
+                                    required>
                             </div>
+                            {% if messages %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in messages %}
+                                <div class="alert-message">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                             <button type="submit" class="btn btn-primary">Daftar</button>
                         </form>
                     </div>
                 </div>
-            </div
+            </div>
