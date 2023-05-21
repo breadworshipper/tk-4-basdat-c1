@@ -27,7 +27,7 @@
                 <td>{{data_event.2}}</td>
                 <td>{{data_event.3}}</td>
                 <td class="text-center">
-                    <a class="btn btn-outline-primary" href="#">Pilih</a>
+                    <a class="btn btn-outline-primary" href="{% url 'atlet:daftar_partai' nama_stadium=nama_stadium nama_event=data_event.0 tahun_event=data_event.4 %}">Pilih</a>
                 </td>
             </tr>
             {% endfor %}
