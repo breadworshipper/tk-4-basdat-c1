@@ -95,7 +95,7 @@ def daftar_partai(request, nama_stadium, nama_event, tahun_event):
                 return redirect(request.get_full_path())
                 
             except Exception as e:
-                messages.error(request, "Gagal mendaftar, mohon perika input anda dan coba lagi")
+                # messages.error(request, "Gagal mendaftar, mohon perika input anda dan coba lagi")
                 messages.error(request, e)
                 db_connection.rollback()
                 db_connection.close()
