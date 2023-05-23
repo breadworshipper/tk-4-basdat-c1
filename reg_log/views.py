@@ -64,7 +64,7 @@ def register_athlete(request):
         tanggal_lahir = request.POST.get('tgl_lahir')
         play_type = parse_play_type(request.POST.get('play'))
         tinggi_badan = request.POST.get('tinggi_badan')
-        jenis_kelamin = parse_play_type(request.POST.get('jenis_kelamin'))
+        jenis_kelamin = parse_kelamin(request.POST.get('jenis_kelamin'))
 
         try:
             create_member(cursor, id_user, nama, email)

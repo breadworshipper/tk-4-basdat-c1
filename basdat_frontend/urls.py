@@ -25,5 +25,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('portal/',include('reg_log.urls')),
     path('dashboard/',include('dashboard.urls')),
-    path('fitur-pelatih/',include('fitur_pelatih.urls'))
+    path('fitur-pelatih/',include('fitur_pelatih.urls')),
+    path('atlet/', include('atlet.urls'))
 ]
